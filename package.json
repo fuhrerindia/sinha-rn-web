@@ -7,8 +7,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Paurush Sinha",
-  "license": "ISC",
+  "author": "Paurush Sinha <stuff.random.in@gmail.com> (https://github.com/sinhapaurush)",
+  "homepage": "https://github.com/sinhapaurush/sinha-rn-web#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinhapaurush/sinha-rn-web"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "web",
+    "cli"
+  ],
   "dependencies": {
     "chalk": "^5.3.0",
     "cli-box": "^6.0.10",
