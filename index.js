@@ -32,11 +32,13 @@ function modifyPackageJson() {
     });
 }
 
-function addWebSupport() {
+function addWebSupport(initial) {
     shelljs.exec('npm install react react-dom react-native-web');
     shelljs.exec('npm install @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin webpack webpack-cli webpack-dev-server --save-dev');
-    shelljs.rm('App.*');
-    downloadFile('App.tsx', 'App.jsx');
+    if (initial) {
+        shelljs.rm('App.*');
+        downloadFile('App.tsx', 'App.jsx');
+    }
     downloadFile('webpack.config.js', 'webpack.config.js');
     shelljs.mkdir('web');
     shelljs.cd('web');
@@ -59,8 +61,8 @@ if (ACTION === 'init') {
         console.log(b5.toString());
         shelljs.exec(`npx react-native@latest init ${appName}`)
         shelljs.cd(appName);
-        addWebSupport();
+        addWebSupport(true);
     }
 } else if (ACTION === 'add-web') {
-    addWebSupport();
+    addWebSupport(false);
 }
