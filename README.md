@@ -10,18 +10,18 @@ This is Command Line tool to create a React Native Project with `web` support. B
 - It uses `react-native-web` under the hood
 
 ## Commands
-### rn-web init
+### sinha-rn-web init
 Use this command to initialize the project, it runs `npx react-native@latest init` command hence it will take few more time maybe few minutes to initialize project. It the adds support to the created project.
 
 Use command below to initialize the app
 ```bash
-npx rn-web@latest init MyTestApp
+npx sinha-rn-web@latest init MyTestApp
 ```
-### rn-web add-web
+### sinha-rn-web add-web
 This command adds `web` platform support to existing `React Native` projects, hence if you have an existing project then navigate to your project root and run the command below to add `web` support.
 
 ```bash
-npx rn-web@latest add-web
+npx sinha-rn-web@latest add-web
 ```
 
 ## Testing and Building
