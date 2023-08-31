@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import chalk from "chalk";
 import Box from 'cli-box';
 import shelljs from "shelljs";
@@ -9,21 +10,19 @@ const PROJECT_BUCKET = "rn-web-files";
 function downloadFile(serverFileName, outPutFileName) {
     shelljs.exec(`curl -L -H "Authorization: Bearer ${API_KEY}" "https://sourceforge.net/projects/${PROJECT_BUCKET}/files/${serverFileName}" -o ${outPutFileName}`);
 }
-function modifyPackageJson(){
-    fs.readFile('package.json', 'utf8', (err, data)=>{
-        console.log('first')
-        if (err){
+function modifyPackageJson() {
+    fs.readFile('package.json', 'utf8', (err, data) => {
+        if (err) {
             console.log(chalk.bold.red(err));
-        }else{
+        } else {
             let packageData = JSON.parse(data);
             packageData['scripts']['web'] = `webpack-dev-server --mode development --open --hot`;
             packageData['scripts']['web-build'] = `webpack --mode production`;
             const updatedPackage = JSON.stringify(packageData, null, 2);
-            console.log(updatedPackage)
-            fs.writeFile('package-a.json', updatedPackage, 'utf8', (err)=>{
-                if (err){
+            fs.writeFile('package.json', updatedPackage, 'utf8', (err) => {
+                if (err) {
                     console.log(chalk.bold.red("Error in Updating package.json"));
-                }else{
+                } else {
                     shelljs.rm('yarn.lock');
                     shelljs.rm('package-lock.json');
                     shelljs.exec('npm install');
@@ -46,7 +45,7 @@ function addWebSupport() {
     shelljs.cd('..');
     modifyPackageJson();
 
-    console.log(Box({w: 50, h: 5}, chalk.bold.green('Success: Web Modules were added to the project')));
+    console.log(Box({ w: 50, h: 5 }, chalk.bold.green('Success: Web Modules were added to the project')));
     console.log(chalk.blue('Run `npm run web` to test on WEB'))
 
 }
