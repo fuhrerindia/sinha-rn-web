@@ -1,6 +1,9 @@
 # React Native Web CLI
 This is Command Line tool to create a React Native Project with `web` support. By default `react-native` only initializes `android` and `iOS` support, but this CLI tool  can be used to initialize a project with `web` support.
 
+# Web Platform Files
+Seee repository `[rn-web-files](https://github.com/sinhapaurush/rn-web-files)` for files and Contirbution in files.
+
 - It uses conventional `npx react-native init` command only to initialize React Native project, and then adds packages and files required for `web` support.
 
 - You can add `web` support to existing React Native projects too with this tool.
